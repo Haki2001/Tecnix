@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnix - مجمع تجاري تقني</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .tech-gradient {
+            background: linear-gradient(45deg, #1e3c72 0%, #2a5298 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+        <script>
+        function showProducts(type) {
+            const productsSection = document.getElementById('products-details');
+            let html = '';
+            if(type === 'smartphones') {
+                html = `
+                    <div class="bg-white rounded-xl shadow-lg p-8 mt-8 text-center">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-700">الهواتف الذكية</h3>
+                        <img src="https://cdn.pixabay.com/photo/2014/09/23/20/13/iphone-458159_1280.jpg" alt="هاتف ذكي" class="mx-auto mb-4 rounded-lg" style="max-width:220px;">
+                        <p class="mb-2">أحدث موديلات الهواتف الذكية من العلامات التجارية الرائدة عالمياً</p>
+                        <ul class="text-right space-y-2 text-gray-700 mb-4">
+                            <li>iPhone و Samsung Galaxy</li>
+                            <li>Huawei و Xiaomi</li>
+                            <li>ضمان شامل لسنتين</li>
+                            <li>أسعار تنافسية</li>
+                        </ul>
+                    </div>
+                `;
+            } else if(type === 'laptops') {
+                html = `
+                    <div class="bg-white rounded-xl shadow-lg p-8 mt-8 text-center">
+                        <h3 class="text-2xl font-bold mb-4 text-purple-700">أجهزة اللابتوب</h3>
+                        <img src="https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg" alt="لابتوب" class="mx-auto mb-4 rounded-lg" style="max-width:220px;">
+                        <p class="mb-2">مجموعة متنوعة من أجهزة اللابتوب للعمل والألعاب والدراسة</p>
+                        <ul class="text-right space-y-2 text-gray-700 mb-4">
+                            <li>Dell و HP و Lenovo</li>
+                            <li>MacBook Pro و Air</li>
+                            <li>أجهزة الألعاب Gaming</li>
+                            <li>مواصفات عالية الأداء</li>
+                        </ul>
+                    </div>
+                `;
+            } else if(type === 'cameras') {
+                html = `
+                    <div class="bg-white rounded-xl shadow-lg p-8 mt-8 text-center">
+                        <h3 class="text-2xl font-bold mb-4 text-green-700">الكاميرات</h3>
+                        <img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/technology-1869236_1280.jpg" alt="كاميرا" class="mx-auto mb-4 rounded-lg" style="max-width:220px;">
+                        <p class="mb-2">كاميرات احترافية ورقمية لجميع مستويات التصوير</p>
+                        <ul class="text-right space-y-2 text-gray-700 mb-4">
+                            <li>Canon و Nikon و Sony</li>
+                            <li>كاميرات DSLR و Mirrorless</li>
+                            <li>عدسات وإكسسوارات</li>
+                            <li>للمحترفين والهواة</li>
+                        </ul>
+                    </div>
+                `;
+            }
+                if(type === 'smartphones') {
+                    html = `
+                        <div class="bg-white rounded-xl shadow-lg p-8 mt-8 text-center">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-700">الهواتف الذكية</h3>
+                            <img src="image/iPhone 15 Pro.jpg" alt="iPhone 15 Pro" class="mx-auto mb-4 rounded-lg" style="max-width:220px;">
+                            <p class="mb-2">أحدث موديلات الهواتف الذكية من العلامات التجارية الرائدة عالمياً</p>
+                            <ul class="text-right space-y-2 text-gray-700 mb-4">
+                                <li>iPhone و Samsung Galaxy</li>
+                                <li>Huawei و Xiaomi</li>
+                                <li>ضمان شامل لسنتين</li>
+                                <li>أسعار تنافسية</li>
+                            </ul>
+                        </div>
+                    `;
+                } else if(type === 'laptops') {
+                    html = `
+                        <div class="bg-white rounded-xl shadow-lg p-8 mt-8 text-center">
+                            <h3 class="text-2xl font-bold mb-4 text-purple-700">أجهزة اللابتوب</h3>
+                            <img src="image/MacBook Pro 16.jpg" alt="MacBook Pro 16" class="mx-auto mb-4 rounded-lg" style="max-width:220px;">
+                            <p class="mb-2">مجموعة متنوعة من أجهزة اللابتوب للعمل والألعاب والدراسة</p>
+                            <ul class="text-right space-y-2 text-gray-700 mb-4">
+                                <li>Dell و HP و Lenovo</li>
+                                <li>MacBook Pro و Air</li>
+                                <li>أجهزة الألعاب Gaming</li>
+                                <li>مواصفات عالية الأداء</li>
+                            </ul>
+                        </div>
+                    `;
+                } else if(type === 'cameras') {
+                    html = `
+                        <div class="bg-white rounded-xl shadow-lg p-8 mt-8 text-center">
+                            <h3 class="text-2xl font-bold mb-4 text-green-700">الكاميرات</h3>
+                            <img src="image/Canon EOS R5.jpg" alt="Canon EOS R5" class="mx-auto mb-4 rounded-lg" style="max-width:220px;">
+                            <p class="mb-2">كاميرات احترافية ورقمية لجميع مستويات التصوير</p>
+                            <ul class="text-right space-y-2 text-gray-700 mb-4">
+                                <li>Canon و Nikon و Sony</li>
+                                <li>كاميرات DSLR و Mirrorless</li>
+                                <li>عدسات وإكسسوارات</li>
+                                <li>للمحترفين والهواة</li>
+                            </ul>
+                        </div>
+                    `;
+                }
+            productsSection.innerHTML = html;
+            productsSection.scrollIntoView({behavior: 'smooth'});
+        }
+        </script>
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-2xl font-bold text-blue-600">T</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold">Tecnix</h1>
+                        <p class="text-sm opacity-90">مجمع تجاري تقني متكامل</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6 space-x-reverse">
+                    <a href="#home" class="hover:text-blue-200 transition-colors">الرئيسية</a>
+                    <a href="#products" class="hover:text-blue-200 transition-colors">المنتجات</a>
+                    <a href="#services" class="hover:text-blue-200 transition-colors">الخدمات</a>
+                    <a href="#about" class="hover:text-blue-200 transition-colors">عن المشروع</a>
+                    <a href="#contact" class="hover:text-blue-200 transition-colors">اتصل بنا</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="tech-gradient text-white py-20 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="circuit" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="1" fill="white"/>
+                        <circle cx="18" cy="18" r="1" fill="white"/>
+                        <circle cx="10" cy="10" r="0.5" fill="white"/>
+                        <line x1="2" y1="2" x2="10" y2="10" stroke="white" stroke-width="0.5"/>
+                        <line x1="10" y1="10" x2="18" y2="18" stroke="white" stroke-width="0.5"/>
+                        <rect x="8" y="8" width="4" height="4" fill="none" stroke="white" stroke-width="0.3"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#circuit)"/>
+            </svg>
+        </div>
+        <!-- Floating Tech Elements -->
+        <div class="absolute top-10 left-10 opacity-20">
+            <svg class="w-16 h-16 text-white animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+        </div>
+        <div class="absolute top-20 right-20 opacity-20">
+            <svg class="w-12 h-12 text-white animate-bounce" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+        </div>
+        <div class="absolute bottom-10 left-20 opacity-20">
+            <svg class="w-14 h-14 text-white animate-spin" style="animation-duration: 8s;" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2v20M2 12h20m-4.22-7.78l-11.56 11.56M20.22 4.22L8.66 15.78"/>
+            </svg>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="fade-in">
+                <h2 class="text-5xl font-bold mb-6">مرحباً بكم في Tecnix</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">مجمع تجاري تقني شامل يوفر أحدث التقنيات والخدمات المتخصصة في العراق</p>
+                <div class="flex justify-center space-x-4 space-x-reverse">
+                    <button onclick="scrollToSection('products')" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors">
+                        استكشف المنتجات
+                    </button>
+                    <button onclick="scrollToSection('services')" class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                        الخدمات المتاحة
+                    </button>
+                </div>
+            </div>
+            <div class="mt-16 floating">
+                <div class="flex justify-center items-center space-x-8 space-x-reverse">
+                    <!-- Phone SVG -->
+                    <div class="w-24 h-40 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center">
+                        <svg class="w-12 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 2a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2H7zm0 2h10v12H7V4zm2 14h6v2H9v-2z"/>
+                        </svg>
+                    </div>
+                    <!-- Laptop SVG -->
+                    <div class="w-32 h-24 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center">
+                        <svg class="w-20 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v7H4V6zm16 9v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1h16zM6 6v5h12V6H6z"/>
+                        </svg>
+                    </div>
+                    <!-- Camera SVG -->
+                    <div class="w-28 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center">
+                        <svg class="w-16 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 3h6l1.83 2H20a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V7a2 2 0 012-2h3.17L9 3zm3 4a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold text-gray-800 mb-4">منتجاتنا التقنية</h3>
+                <p class="text-gray-600 text-lg">أحدث الأجهزة التقنية بأفضل الأسعار</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Smartphones -->
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-blue-500 rounded-full flex items-center justify-center">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zM8 4h4v10H8V4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4">الهواتف الذكية</h4>
+                    <p class="text-gray-600 mb-6">أحدث موديلات الهواتف الذكية من العلامات التجارية الرائدة عالمياً</p>
+                    <ul class="text-right space-y-2 text-gray-700 mb-6">
+                        <li>• iPhone و Samsung Galaxy</li>
+                        <li>• Huawei و Xiaomi</li>
+                        <li>• ضمان شامل لسنتين</li>
+                        <li>• أسعار تنافسية</li>
+                    </ul>
+                    <button onclick="showProducts('smartphones')" class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                        عرض المنتجات
+                    </button>
+                </div>
+
+                <!-- Laptops -->
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-purple-500 rounded-full flex items-center justify-center">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4">أجهزة اللابتوب</h4>
+                    <p class="text-gray-600 mb-6">مجموعة متنوعة من أجهزة اللابتوب للعمل والألعاب والدراسة</p>
+                    <ul class="text-right space-y-2 text-gray-700 mb-6">
+                        <li>• Dell و HP و Lenovo</li>
+                        <li>• MacBook Pro و Air</li>
+                        <li>• أجهزة الألعاب Gaming</li>
+                        <li>• مواصفات عالية الأداء</li>
+                    </ul>
+                    <button onclick="showProducts('laptops')" class="w-full bg-purple-500 text-white py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors">
+                        عرض المنتجات
+                    </button>
+                </div>
+
+                <!-- Cameras -->
+                <div class="card-hover bg-gradient-to-br from-green-50 to-teal-100 rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-green-500 rounded-full flex items-center justify-center">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586l-.707-.707A1 1 0 0013 4H7a1 1 0 00-.707.293L5.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4">الكاميرات</h4>
+                    <p class="text-gray-600 mb-6">كاميرات احترافية ورقمية لجميع مستويات التصوير</p>
+                    <ul class="text-right space-y-2 text-gray-700 mb-6">
+                        <li>• Canon و Nikon و Sony</li>
+                        <li>• كاميرات DSLR و Mirrorless</li>
+                        <li>• عدسات وإكسسوارات</li>
+                        <li>• للمحترفين والهواة</li>
+                    </ul>
+                    <button onclick="showProducts('cameras')" class="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                        عرض المنتجات
+                    </button>
+                </div>
+
+                <!-- Accessories -->
+                <div class="card-hover bg-gradient-to-br from-orange-50 to-red-100 rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-orange-500 rounded-full flex items-center justify-center">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4">الإكسسوارات</h4>
+                    <p class="text-gray-600 mb-6">مجموعة شاملة من الإكسسوارات لجميع الأجهزة التقنية</p>
+                    <ul class="text-right space-y-2 text-gray-700 mb-6">
+                        <li>• أغطية وحافظات حماية</li>
+                        <li>• شواحن وكابلات</li>
+                        <li>• سماعات وإكسسوارات صوتية</li>
+                        <li>• حقائب وحوامل</li>
+                    </ul>
+                    <button onclick="showProducts('accessories')" class="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+                        عرض المنتجات
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold text-gray-800 mb-4">خدماتنا المتخصصة</h3>
+                <p class="text-gray-600 text-lg">خدمات صيانة وإصلاح شاملة</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Software Services -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center ml-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">صيانة البرمجيات</h4>
+                    </div>
+                    <ul class="space-y-3 text-gray-700 mb-6">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full ml-3"></span>
+                            إزالة الفيروسات والبرامج الضارة
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full ml-3"></span>
+                            تثبيت وتحديث أنظمة التشغيل
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full ml-3"></span>
+                            استعادة البيانات المفقودة
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full ml-3"></span>
+                            تحسين أداء النظام
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full ml-3"></span>
+                            تثبيت البرامج والتطبيقات
+                        </li>
+                    </ul>
+                    <button onclick="showProducts('software')" class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                        عرض الخدمات
+                    </button>
+                </div>
+
+                <!-- Hardware Services -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center ml-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 7H7v6h6V7z"/>
+                                <path fill-rule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5v10h10V5H5z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">صيانة الأجهزة</h4>
+                    </div>
+                    <ul class="space-y-3 text-gray-700 mb-6">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full ml-3"></span>
+                            إصلاح شاشات الهواتف واللابتوب
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full ml-3"></span>
+                            استبدال البطاريات والقطع
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full ml-3"></span>
+                            تنظيف وصيانة المراوح
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full ml-3"></span>
+                            ترقية الذاكرة والتخزين
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full ml-3"></span>
+                            إصلاح منافذ الشحن والصوت
+                        </li>
+                    </ul>
+                    <button onclick="showProducts('hardware')" class="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+                        عرض الخدمات
+                    </button>
+                </div>
+
+                <!-- Spare Parts -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center ml-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800">قطع الغيار</h4>
+                    </div>
+                    <ul class="space-y-3 text-gray-700 mb-6">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full ml-3"></span>
+                            شاشات أصلية لجميع الهواتف
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full ml-3"></span>
+                            بطاريات عالية الجودة
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full ml-3"></span>
+                            كاميرات ومكبرات صوت
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full ml-3"></span>
+                            قطع اللابتوب والكمبيوتر
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full ml-3"></span>
+                            ضمان على جميع القطع
+                        </li>
+                    </ul>
+                    <button onclick="showProducts('spareparts')" class="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                        عرض قطع الغيار
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lifetime Warranty Offer -->
+            <div class="mt-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-8 text-white relative overflow-hidden">
+                <!-- Background Pattern -->
+                <div class="absolute inset-0 opacity-10">
+                    <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="warranty-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <circle cx="10" cy="10" r="2" fill="white"/>
+                                <circle cx="2" cy="2" r="1" fill="white"/>
+                                <circle cx="18" cy="18" r="1" fill="white"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#warranty-pattern)"/>
+                    </svg>
+                </div>
+                
+                <div class="relative z-10">
+                    <div class="text-center mb-8">
+                        <!-- Tecnix Logo -->
+                        <div class="flex justify-center items-center mb-6">
+                            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-purple-600">T</div>
+                                    <div class="text-xs text-purple-600 font-semibold">TECNIX</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-4xl font-bold mb-4">🛡️ عرض الصيانة مدى الحياة</h3>
+                        <p class="text-xl mb-6 opacity-90">عرض حصري لعملاء مجمع Tecnix</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="bg-white bg-opacity-20 rounded-2xl p-6 mb-6">
+                                <h4 class="text-2xl font-bold mb-4">شروط العرض:</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <span class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center ml-3">
+                                            <span class="text-purple-600 font-bold text-sm">✓</span>
+                                        </span>
+                                        شراء أي منتج من مجمع Tecnix
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center ml-3">
+                                            <span class="text-purple-600 font-bold text-sm">✓</span>
+                                        </span>
+                                        وضع شعار Tecnix على الجهاز
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center ml-3">
+                                            <span class="text-purple-600 font-bold text-sm">✓</span>
+                                        </span>
+                                        الاحتفاظ بالشعار طوال فترة الضمان
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white bg-opacity-20 rounded-2xl p-6">
+                                <h4 class="text-2xl font-bold mb-4">ما يشمله العرض:</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <span class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center ml-3">
+                                            <span class="text-purple-600 font-bold text-sm">∞</span>
+                                        </span>
+                                        صيانة مجانية مدى الحياة
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center ml-3">
+                                            <span class="text-purple-600 font-bold text-sm">∞</span>
+                                        </span>
+                    <div id="products-details"></div>
+                                        استبدال قطع الغيار بسعر التكلفة
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center ml-3">
+                                            <span class="text-purple-600 font-bold text-sm">∞</span>
+                                        </span>
+                                        أولوية في الخدمة
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center ml-3">
+                                            <span class="text-purple-600 font-bold text-sm">∞</span>
+                                        </span>
+                                        دعم فني مجاني 24/7
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="bg-white bg-opacity-20 rounded-3xl p-8">
+                                <div class="w-32 h-32 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-2xl">
+                                    <svg class="w-16 h-16 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <h4 class="text-3xl font-bold mb-4">ضمان مدى الحياة</h4>
+                                <p class="text-lg opacity-90 mb-6">مع شعار Tecnix على جهازك</p>
+                                <button onclick="contactForWarranty()" class="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
+                                    استفسر عن العرض
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-4xl font-bold text-gray-800 mb-6">عن مشروع Tecnix</h3>
+                    <p class="text-gray-600 text-lg mb-6">
+                        مشروع Tecnix هو مبادرة شبابية عراقية طموحة تهدف إلى توفير مجمع تجاري تقني متكامل يلبي احتياجات المجتمع العراقي في مجال التكنولوجيا.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-6">
+                        نسعى لأن نكون الوجهة الأولى للتقنية في العراق من خلال توفير أحدث المنتجات التقنية وأفضل خدمات الصيانة والدعم الفني.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">500+</div>
+                            <div class="text-gray-600">منتج متاح</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-600 mb-2">24/7</div>
+                            <div class="text-gray-600">دعم فني</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="w-80 h-80 mx-auto bg-gradient-to-br from-blue-100 to-purple-100 rounded-full flex items-center justify-center">
+                        <svg class="w-40 h-40 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold mb-4">تواصل معنا</h3>
+                <p class="text-lg opacity-90">نحن هنا لخدمتكم والإجابة على استفساراتكم</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h4 class="text-2xl font-bold mb-6">معلومات التواصل</h4>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center ml-4">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-semibold">البريد الإلكتروني</div>
+                                <div class="opacity-90">haki.22cs389@student.uomosul.edu.iq</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center ml-4">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-semibold">رقم الهاتف</div>
+                                <a href="tel:+96407769484009" class="opacity-90 hover:opacity-100 hover:underline transition-all">07769484009</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center ml-4">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-semibold">العنوان</div>
+                                <div class="opacity-90">نينوى، مخمور الكوير، العراق</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white bg-opacity-10 rounded-2xl p-8">
+                    <h4 class="text-2xl font-bold mb-6">أرسل رسالة</h4>
+                    <form onsubmit="handleSubmit(event)" class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="الاسم الكامل" required class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="البريد الإلكتروني" required class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <textarea placeholder="رسالتك" rows="4" required class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-white text-blue-600 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                            إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Pages Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl max-w-6xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 id="modalTitle" class="text-3xl font-bold text-gray-800"></h2>
+                        <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="modalContent" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Products will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-4 space-x-reverse mb-4">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-lg font-bold">T</span>
+                        </div>
+                        <span class="text-xl font-bold">Tecnix</span>
+                    </div>
+                    <p class="text-gray-400">مجمع تجاري تقني متكامل يخدم المجتمع العراقي بأحدث التقنيات والخدمات المتخصصة.</p>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">روابط سريعة</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition-colors">الرئيسية</a></li>
+                        <li><a href="#products" class="hover:text-white transition-colors">المنتجات</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">الخدمات</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">عن المشروع</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">تابعنا</h5>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <span class="text-sm">f</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                            <span class="text-sm">t</span>
+                        </a>
+                        <a href="https://instagram.com/hqy1930" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Tecnix. جميع الحقوق محفوظة. مشروع مقدم لمنظمة الأمم المتحدة للشباب العراقي</p>
+                <div class="mt-4 flex flex-col items-center justify-center">
+                    <span class="text-lg font-bold text-blue-600">بإدارة حقي فتحي العبد</span>
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mt-2">
+                        <span class="text-2xl font-bold text-blue-600">T</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data
+        const products = {
+            smartphones: [
+                {
+                    name: "iPhone 15 Pro",
+                    price: "1,200,000 د.ع",
+                    image: "image/iPhone 15 Pro.jpg",
+                    specs: ["شاشة 6.1 بوصة Super Retina XDR", "معالج A17 Pro", "كاميرا ثلاثية 48MP", "ذاكرة 128GB/256GB/512GB/1TB", "مقاوم للماء IP68"]
+                },
+                {
+                    name: "Samsung Galaxy S24 Ultra",
+                    price: "1,100,000 د.ع",
+                    image: "image/Samsung Galaxy S24 Ultra.jpg",
+                    specs: ["شاشة 6.8 بوصة Dynamic AMOLED", "معالج Snapdragon 8 Gen 3", "كاميرا رباعية 200MP", "ذاكرة 256GB/512GB/1TB", "قلم S Pen مدمج"]
+                },
+                {
+                    name: "Xiaomi 14 Pro",
+                    price: "750,000 د.ع",
+                    image: "image/Xiaomi 14 Pro.jpg",
+                    specs: ["شاشة 6.73 بوصة LTPO OLED", "معالج Snapdragon 8 Gen 3", "كاميرا ثلاثية 50MP", "ذاكرة 256GB/512GB", "شحن سريع 120W"]
+                },
+                {
+                    name: "iPhone 14 Pro Max",
+                    price: "1,050,000 د.ع",
+                    image: "image/iPhone 14 Pro Max.jpg",
+                    specs: ["شاشة 6.7 بوصة Super Retina XDR", "معالج A16 Bionic", "كاميرا ثلاثية 48MP", "ذاكرة 128GB/256GB/512GB/1TB", "Dynamic Island"]
+                },
+                {
+                    name: "Samsung Galaxy S23",
+                    price: "850,000 د.ع",
+                    image: "image/Samsung Galaxy S23.jpg",
+                    specs: ["شاشة 6.1 بوصة Dynamic AMOLED", "معالج Snapdragon 8 Gen 2", "كاميرا ثلاثية 50MP", "ذاكرة 128GB/256GB", "شحن سريع 25W"]
+                },
+                {
+                    name: "Google Pixel 8 Pro",
+                    price: "900,000 د.ع",
+                    image: "image/Google Pixel 8 Pro.jpg",
+                    specs: ["شاشة 6.7 بوصة LTPO OLED", "معالج Google Tensor G3", "كاميرا ثلاثية 50MP", "ذاكرة 128GB/256GB/512GB", "ذكاء اصطناعي متقدم"]
+                },
+                {
+                    name: "OnePlus 12",
+                    price: "700,000 د.ع",
+                    image: "image/OnePlus 12.jpg",
+                    specs: ["شاشة 6.82 بوصة LTPO AMOLED", "معالج Snapdragon 8 Gen 3", "كاميرا ثلاثية 50MP", "ذاكرة 256GB/512GB", "شحن سريع 100W"]
+                },
+                {
+                    name: "Huawei P60 Pro",
+                    price: "800,000 د.ع",
+                    image: "image/Huawei P60 Pro.jpg",
+                    specs: ["شاشة 6.67 بوصة LTPO OLED", "معالج Snapdragon 8+ Gen 1", "كاميرا ثلاثية 48MP", "ذاكرة 256GB/512GB", "تصوير ليلي متطور"]
+                }
+            ],
+            laptops: [
+                {
+                    name: "MacBook Pro 16",
+                    price: "2,800,000 د.ع",
+                    image: "image/MacBook Pro 16.jpg",
+                    specs: ["معالج Apple M3 Pro/Max", "شاشة 16.2 بوصة Liquid Retina XDR", "ذاكرة عشوائية 18GB/36GB", "تخزين 512GB/1TB/2TB/4TB/8TB", "بطارية تدوم 22 ساعة"]
+                },
+                {
+                    name: "Dell XPS 15",
+                    price: "1,800,000 د.ع",
+                    image: "image/Dell XPS 15.jpg",
+                    specs: ["معالج Intel Core i7-13700H", "شاشة 15.6 بوصة 4K OLED", "ذاكرة عشوائية 16GB/32GB", "تخزين 512GB/1TB SSD", "كرت رسوميات RTX 4060"]
+                },
+                {
+                    name: "ASUS ROG Strix G15",
+                    price: "1,400,000 د.ع",
+                    image: "image/ASUS ROG Strix G15.jpg",
+                    specs: ["معالج AMD Ryzen 7 7735HS", "شاشة 15.6 بوصة 144Hz", "ذاكرة عشوائية 16GB DDR5", "تخزين 1TB SSD", "كرت رسوميات RTX 4060"]
+                },
+                {
+                    name: "MacBook Air M2",
+                    price: "1,600,000 د.ع",
+                    image: "image/MacBook Air M2.jpg",
+                    specs: ["معالج Apple M2", "شاشة 13.6 بوصة Liquid Retina", "ذاكرة عشوائية 8GB/16GB/24GB", "تخزين 256GB/512GB/1TB/2TB", "بطارية تدوم 18 ساعة"]
+                },
+                {
+                    name: "HP Spectre x360",
+                    price: "1,500,000 د.ع",
+                    image: "image/HP Spectre x360.jpg",
+                    specs: ["معالج Intel Core i7-1355U", "شاشة 13.5 بوصة OLED لمسية", "ذاكرة عشوائية 16GB/32GB", "تخزين 512GB/1TB SSD", "تصميم قابل للطي 360°"]
+                },
+                {
+                    name: "Lenovo ThinkPad X1 Carbon",
+                    price: "1,700,000 د.ع",
+                    image: "image/Lenovo ThinkPad X1 Carbon.jpg",
+                    specs: ["معالج Intel Core i7-1365U", "شاشة 14 بوصة 2.8K OLED", "ذاكرة عشوائية 16GB/32GB", "تخزين 512GB/1TB SSD", "وزن 1.12 كيلو فقط"]
+                },
+                {
+                    name: "MSI Gaming Laptop GF63",
+                    price: "1,200,000 د.ع",
+                    image: "image/MSI Gaming Laptop GF63.jpg",
+                    specs: ["معالج Intel Core i5-12450H", "شاشة 15.6 بوصة 144Hz", "ذاكرة عشوائية 8GB/16GB", "تخزين 512GB SSD", "كرت رسوميات RTX 4050"]
+                },
+                {
+                    name: "Surface Laptop 5",
+                    price: "1,350,000 د.ع",
+                    image: "image/Surface Laptop 5.jpeg",
+                    specs: ["معالج Intel Core i7-1255U", "شاشة 13.5 بوصة PixelSense", "ذاكرة عشوائية 8GB/16GB/32GB", "تخزين 256GB/512GB/1TB", "لوحة مفاتيح Alcantara"]
+                }
+            ],
+            cameras: [
+                {
+                    name: "Canon EOS R5",
+                    price: "3,200,000 د.ع",
+                    image: "image/Canon EOS R5.jpg",
+                    specs: ["حساس 45MP Full Frame", "تصوير فيديو 8K RAW", "تثبيت صورة داخلي 5 محاور", "شاشة لمس متحركة 3.2 بوصة", "Wi-Fi و Bluetooth مدمج"]
+                },
+                {
+                    name: "Sony A7 IV",
+                    price: "2,400,000 د.ع",
+                    image: "image/Sony A7 IV.jpg",
+                    specs: ["حساس 33MP Full Frame", "تصوير فيديو 4K 60p", "تثبيت صورة 5.5 توقفات", "شاشة لمس قابلة للطي", "بطارية طويلة المدى"]
+                },
+                {
+                    name: "Nikon Z9",
+                    price: "4,800,000 د.ع",
+                    image: "image/Nikon-Z9.jpg",
+                    specs: ["حساس 45.7MP Full Frame", "تصوير فيديو 8K 30p", "تصوير مستمر 120 إطار/ثانية", "شاشة 3.2 بوصة عالية الدقة", "مقاوم للطقس"]
+                },
+                {
+                    name: "Canon EOS R6 Mark II",
+                    price: "2,800,000 د.ع",
+                    image: "image/Canon EOS R6 Mark II.jpeg",
+                    specs: ["حساس 24.2MP Full Frame", "تصوير فيديو 4K 60p", "تثبيت صورة داخلي 8 توقفات", "تصوير مستمر 40 إطار/ثانية", "أداء ممتاز في الإضاءة المنخفضة"]
+                },
+                {
+                    name: "Sony A7R V",
+                    price: "3,800,000 د.ع",
+                    image: "image/Sony A7R V.jpeg",
+                    specs: ["حساس 61MP Full Frame", "تصوير فيديو 8K 24p", "تثبيت صورة 8 توقفات", "شاشة لمس متحركة 4 اتجاهات", "ذكاء اصطناعي للتركيز"]
+                },
+                {
+                    name: "Fujifilm X-T5",
+                    price: "1,800,000 د.ع",
+                    image: "image/Fujifilm X-T5.jpeg",
+                    specs: ["حساس 40.2MP APS-C", "تصوير فيديو 6.2K 30p", "تثبيت صورة داخلي 7 توقفات", "شاشة لمس متحركة 3 بوصة", "تصميم كلاسيكي أنيق"]
+                },
+                {
+                    name: "Nikon Z6 III",
+                    price: "2,200,000 د.ع",
+                    image: "image/Nikon Z6 III.jpeg",
+                    specs: ["حساس 24.5MP Full Frame", "تصوير فيديو 4K 120p", "تثبيت صورة داخلي 8 توقفات", "شاشة لمس قابلة للطي", "أداء ممتاز للفيديو"]
+                },
+                {
+                    name: "Canon EOS R10",
+                    price: "1,200,000 د.ع",
+                    image: "image/Canon EOS R10.jpeg",
+                    specs: ["حساس 24.2MP APS-C", "تصوير فيديو 4K 30p", "تصوير مستمر 23 إطار/ثانية", "شاشة لمس متحركة", "مثالية للمبتدئين والهواة"]
+                }
+            ],
+            accessories: [
+                {
+                    name: "AirPods Pro 2",
+                    price: "280,000 د.ع",
+                    image: "image/airpods-pro-2.jpg",
+                    specs: ["إلغاء الضوضاء النشط", "شحن لاسلكي", "مقاوم للماء IPX4", "بطارية تدوم 30 ساعة", "صوت مكاني"]
+                },
+                {
+                    name: "Samsung Galaxy Buds2 Pro",
+                    price: "180,000 د.ع",
+                    image: "image/61KVX-MbIUL.jpg",
+                    specs: ["إلغاء الضوضاء الذكي", "صوت عالي الدقة", "مقاوم للماء IPX7", "بطارية 29 ساعة", "تحكم باللمس"]
+                },
+                {
+                    name: "Anker PowerBank 20000mAh",
+                    price: "85,000 د.ع",
+                    image: "image/Anker PowerBank 20000mAh.jpeg",
+                    specs: ["سعة 20000 مللي أمبير", "شحن سريع 22.5W", "3 منافذ USB", "شاشة LED للبطارية", "حماية متعددة الطبقات"]
+                },
+                {
+                    name: "Belkin MagSafe Charger",
+                    price: "65,000 د.ع",
+                    image: "image/Belkin MagSafe Charger.jpeg",
+                    specs: ["شحن لاسلكي 15W", "متوافق مع MagSafe", "كابل USB-C بطول 1 متر", "تصميم مدمج", "شحن آمن وسريع"]
+                },
+                {
+                    name: "Logitech MX Master 3S",
+                    price: "120,000 د.ع",
+                    image: "image/Logitech MX Master 3S.jpeg",
+                    specs: ["حساس 8000 DPI", "بطارية تدوم 70 يوم", "عجلة تمرير صامتة", "اتصال متعدد الأجهزة", "تصميم مريح"]
+                },
+                {
+                    name: "Apple Magic Keyboard",
+                    price: "150,000 د.ع",
+                    image: "image/Apple Magic Keyboard.jpeg",
+                    specs: ["مفاتيح مقصية محسنة", "بطارية قابلة للشحن", "اتصال لاسلكي مستقر", "تصميم نحيف وأنيق", "متوافق مع جميع أجهزة Mac"]
+                },
+                {
+                    name: "Sony WH-1000XM5",
+                    price: "380,000 د.ع",
+                    image: "image/Sony WH-1000XM5.jpeg",
+                    specs: ["إلغاء ضوضاء رائد في الصناعة", "بطارية 30 ساعة", "شحن سريع", "صوت عالي الدقة", "تحكم باللمس الذكي"]
+                },
+                {
+                    name: "Spigen Tough Armor Case",
+                    price: "45,000 د.ع",
+                    image: "image/Spigen Tough Armor Case.jpeg",
+                    specs: ["حماية عسكرية معتمدة", "طبقة مزدوجة للحماية", "حامل مدمج", "متوافق مع الشحن اللاسلكي", "أزرار محسنة"]
+                },
+                {
+                    name: "Peak Design Camera Strap",
+                    price: "75,000 د.ع",
+                    image: "image/Peak Design Camera Strap.jpeg",
+                    specs: ["نظام ربط سريع", "مواد عالية الجودة", "تصميم مريح ومبطن", "متوافق مع جميع الكاميرات", "ضمان مدى الحياة"]
+                },
+                {
+                    name: "SanDisk Extreme Pro SD Card",
+                    price: "95,000 د.ع",
+                    image: "image/SanDisk Extreme Pro SD Card.jpeg",
+                    specs: ["سعة 128GB", "سرعة قراءة 200MB/s", "سرعة كتابة 90MB/s", "مقاوم للماء والصدمات", "مثالي للتصوير 4K"]
+                },
+                {
+                    name: "Manfrotto Camera Tripod",
+                    price: "220,000 د.ع",
+                    image: "image/Manfrotto Camera Tripod.webp",
+                    specs: ["حمولة قصوى 8 كيلو", "ارتفاع قابل للتعديل", "أرجل من ألياف الكربون", "رأس كروي سلس", "حقيبة حمل مرفقة"]
+                },
+                {
+                    name: "Razer Gaming Mouse Pad",
+                    price: "35,000 د.ع",
+                    image: "image/Razer Gaming Mouse Pad.jpeg",
+                    specs: ["سطح محسن للألعاب", "حواف مخيطة", "قاعدة مطاطية مانعة للانزلاق", "حجم كبير 35×25 سم", "سهل التنظيف"]
+                }
+            ],
+            spareparts: [
+                {
+                    name: "شاشة iPhone 15 Pro أصلية",
+                    price: "180,000 د.ع",
+                    image: "image/iPhone 15 Pro.jpg",
+                    specs: ["شاشة Super Retina XDR أصلية", "مقاس 6.1 بوصة", "تقنية ProMotion 120Hz", "ضمان 6 أشهر", "تركيب مجاني"]
+                },
+                {
+                    name: "بطارية Samsung Galaxy S24",
+                    price: "65,000 د.ع",
+                    image: "image/Samsung Galaxy S24 Ultra.jpg",
+                    specs: ["سعة 4000 مللي أمبير", "بطارية ليثيوم أيون أصلية", "دورة شحن 1000+ مرة", "ضمان سنة كاملة", "تركيب احترافي"]
+                },
+                {
+                    name: "كاميرا خلفية iPhone 14 Pro",
+                    price: "120,000 د.ع",
+                    image: "image/iPhone 14 Pro Max.jpg",
+                    specs: ["كاميرا 48MP أصلية", "عدسة ثلاثية", "تقنية ProRAW", "ضمان 6 أشهر", "معايرة احترافية"]
+                },
+                {
+                    name: "ذاكرة عشوائية لابتوب 16GB DDR5",
+                    price: "95,000 د.ع",
+                    image: "image/Lenovo ThinkPad X1 Carbon.jpg",
+                    specs: ["ذاكرة 16GB DDR5", "سرعة 4800MHz", "متوافق مع جميع اللابتوبات", "ضمان مدى الحياة", "تركيب وفحص مجاني"]
+                },
+                {
+                    name: "قرص صلب SSD 1TB",
+                    price: "110,000 د.ع",
+                    image: "image/MSI Gaming Laptop GF63.jpg",
+                    specs: ["سعة 1TB NVMe SSD", "سرعة قراءة 7000MB/s", "متوافق مع جميع الأجهزة", "ضمان 5 سنوات", "نقل البيانات مجاني"]
+                },
+                {
+                    name: "شاشة لابتوب 15.6 بوصة",
+                    price: "140,000 د.ع",
+                    image: "image/HP Spectre x360.jpg",
+                    specs: ["شاشة 15.6 بوصة Full HD", "تقنية IPS", "إضاءة LED", "ضمان سنة", "تركيب احترافي"]
+                },
+                {
+                    name: "مكبر صوت Xiaomi أصلي",
+                    price: "25,000 د.ع",
+                    image: "image/Xiaomi 14 Pro.jpg",
+                    specs: ["مكبر صوت أصلي", "جودة صوت عالية", "متوافق مع جميع موديلات Xiaomi", "ضمان 6 أشهر", "تركيب فوري"]
+                },
+                {
+                    name: "لوحة مفاتيح لابتوب عربي/إنجليزي",
+                    price: "45,000 د.ع",
+                    image: "image/Apple Magic Keyboard.jpeg",
+                    specs: ["لوحة مفاتيح عربي/إنجليزي", "إضاءة خلفية", "متوافق مع معظم اللابتوبات", "ضمان سنة", "تركيب مجاني"]
+                }
+            ],
+            software: [
+                {
+                    name: "تنظيف شامل للنظام",
+                    price: "25,000 د.ع",
+                    image: "image/iPhone 15 Pro.jpg",
+                    specs: ["إزالة الملفات المؤقتة", "تنظيف السجل", "إلغاء تجزئة القرص", "تحسين بدء التشغيل", "ضمان تحسن الأداء 50%"]
+                },
+                {
+                    name: "إزالة الفيروسات والبرامج الضارة",
+                    price: "35,000 د.ع",
+                    image: "image/Lenovo ThinkPad X1 Carbon.jpg",
+                    specs: ["فحص شامل للنظام", "إزالة جميع أنواع الفيروسات", "تثبيت برنامج حماية", "حماية مستقبلية", "ضمان خلو من الفيروسات لشهر"]
+                },
+                {
+                    name: "تثبيت نظام تشغيل جديد",
+                    price: "45,000 د.ع",
+                    image: "image/MacBook Pro 16.jpg",
+                    specs: ["تثبيت Windows 11 أصلي", "تفعيل النظام", "تثبيت التعريفات", "نقل البيانات المهمة", "ضمان عمل النظام لسنة"]
+                },
+                {
+                    name: "استعادة البيانات المحذوفة",
+                    price: "55,000 د.ع",
+                    image: "image/MSI Gaming Laptop GF63.jpg",
+                    specs: ["استعادة الملفات المحذوفة", "استعادة الصور والفيديوهات", "إصلاح الأقراص التالفة", "نسبة نجاح 95%", "لا يتم الدفع إلا عند النجاح"]
+                },
+                {
+                    name: "تحديث وتثبيت البرامج",
+                    price: "20,000 د.ع",
+                    image: "image/Surface Laptop 5.jpeg",
+                    specs: ["تثبيت حزمة Office", "برامج التصميم والمونتاج", "متصفحات محدثة", "برامج الحماية", "دعم فني لشهر"]
+                },
+                {
+                    name: "إعداد الشبكة والإنترنت",
+                    price: "30,000 د.ع",
+                    image: "image/MacBook Air M2.jpg",
+                    specs: ["إعداد شبكة Wi-Fi", "حل مشاكل الاتصال", "تحسين سرعة الإنترنت", "إعداد الطابعة الشبكية", "دعم فني مستمر"]
+                }
+            ],
+            hardware: [
+                {
+                    name: "إصلاح شاشة الهاتف",
+                    price: "80,000 - 200,000 د.ع",
+                    image: "image/iPhone 15 Pro.jpg",
+                    specs: ["تشخيص مجاني", "استخدام قطع أصلية", "ضمان 6 أشهر", "وقت الإصلاح: 30 دقيقة", "فحص شامل بعد الإصلاح"]
+                },
+                {
+                    name: "استبدال بطارية الهاتف",
+                    price: "45,000 - 85,000 د.ع",
+                    image: "image/Samsung Galaxy S24 Ultra.jpg",
+                    specs: ["بطاريات أصلية عالية الجودة", "فحص دورة الشحن", "ضمان سنة كاملة", "تحسن عمر البطارية 100%", "معايرة البطارية مجانية"]
+                },
+                {
+                    name: "تنظيف وصيانة اللابتوب",
+                    price: "35,000 د.ع",
+                    image: "image/MacBook Pro 16.jpg",
+                    specs: ["تنظيف المراوح والمبددات", "تغيير المعجون الحراري", "تنظيف لوحة المفاتيح", "فحص الدوائر الداخلية", "ضمان تحسن التبريد"]
+                },
+                {
+                    name: "ترقية الذاكرة والتخزين",
+                    price: "25,000 د.ع + سعر القطعة",
+                    image: "image/MSI Gaming Laptop GF63.jpg",
+                    specs: ["ترقية الذاكرة العشوائية", "تركيب SSD سريع", "نقل النظام والبيانات", "تحسن الأداء 300%", "ضمان التركيب مدى الحياة"]
+                },
+                {
+                    name: "إصلاح منافذ الشحن",
+                    price: "40,000 - 70,000 د.ع",
+                    image: "image/iPhone 14 Pro Max.jpg",
+                    specs: ["إصلاح منفذ USB-C", "إصلاح منفذ Lightning", "تنظيف المنافذ", "استبدال المنافذ التالفة", "ضمان 6 أشهر"]
+                },
+                {
+                    name: "إصلاح الكاميرات",
+                    price: "60,000 - 150,000 د.ع",
+                    image: "image/Sony WH-1000XM5.jpeg",
+                    specs: ["إصلاح الكاميرا الأمامية والخلفية", "استبدال العدسات", "معايرة التركيز", "فحص جودة الصورة", "ضمان 6 أشهر"]
+                }
+            ]
+        };
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Show success message
+            alert('شكراً لك! تم إرسال رسالتك بنجاح. سنتواصل معك قريباً.');
+            
+            // Reset form
+            form.reset();
+        }
+
+        function showProducts(category) {
+            const modal = document.getElementById('productModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            
+            // Set title based on category
+            const titles = {
+                smartphones: 'الهواتف الذكية',
+                laptops: 'أجهزة اللابتوب',
+                cameras: 'الكاميرات',
+                accessories: 'الإكسسوارات',
+                spareparts: 'قطع الغيار',
+                software: 'خدمات البرمجيات',
+                hardware: 'خدمات الأجهزة'
+            };
+            
+            modalTitle.textContent = titles[category];
+            
+            // Clear previous content
+            modalContent.innerHTML = '';
+            
+            // Add products
+            products[category].forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow';
+                productCard.innerHTML = `
+                    <div class="mb-4">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-lg bg-white"
+                        onerror="if(this.src.endsWith('.jpg')){this.src=this.src.replace('.jpg','.jpeg');}else if(this.src.endsWith('.jpeg')){this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}';this.alt='صورة غير متوفرة';}">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">${product.name}</h3>
+                    <p class="text-2xl font-bold text-blue-600 mb-4">${product.price}</p>
+                    <div class="space-y-2">
+                        <h4 class="font-semibold text-gray-700">المواصفات:</h4>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            ${product.specs.map(spec => `<li>• ${spec}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <button onclick="contactForProduct('${product.name}')" class="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        استفسار عن المنتج
+                    </button>
+                `;
+                modalContent.appendChild(productCard);
+            });
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function contactForProduct(productName) {
+            const phoneNumber = '07769484009';
+            const message = `مرحباً، أريد الاستفسار عن ${productName}`;
+            const whatsappUrl = `https://wa.me/964${phoneNumber.substring(1)}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function contactForWarranty() {
+            const phoneNumber = '07769484009';
+            const message = `مرحباً، أريد الاستفسار عن عرض الصيانة مدى الحياة مع شعار Tecnix`;
+            const whatsappUrl = `https://wa.me/964${phoneNumber.substring(1)}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9838851b33015160',t:'MTc1ODYxNDU0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
